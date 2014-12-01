@@ -1,0 +1,210 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script type="text/javascript" src="scripts/jquery.js"></script>
+    <style>
+        body {
+            background: url('http://my.devcon2.be/Images/background2.jpg') repeat;
+            font-family: Tahoma,'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        .Info {
+            background-color: rgba(243, 243, 243, 0.55);
+            border: 3px solid #D5DADE;
+            border-radius: 25px;
+        }
+
+        input {
+            width: 90%;
+            border: 3px solid #D5DADE;
+            border-radius: 5px;
+        }
+
+        .LoginTr td table {
+            background-color: rgba(243, 243, 243, 0.55);
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        /* Smartphones (landscape) ----------- */
+        @media only screen and (min-width : 321px) {
+            .Info {
+                width: 94%;
+                margin-left: 3%;
+                clear: both;
+                text-align: center;
+            }
+
+                .Info img {
+                    width: 48%;
+                    float: left;
+                }
+
+                .Info h1 {
+                    font-weight: bold;
+                    width: 48%;
+                    float: left;
+                }
+
+            .LoginBox {
+                width: 98%;
+                margin-left: 1%;
+                clear: both;
+            }
+
+                .LoginBox table tr:first-child td {
+                    text-align: center;
+                    font-size: 1.5em;
+                    border-bottom: 2px solid #D5DADE;
+                }
+        }
+
+        /* Smartphones (portrait) ----------- */
+        @media only screen and (max-width : 320px) {
+            .Info {
+                width: 94%;
+                margin-left: 3%;
+                clear: both;
+                text-align: center;
+            }
+
+                .Info img {
+                    width: 100%;
+                }
+
+                .Info h1 {
+                    font-weight: bold;
+                }
+
+            .LoginBox {
+                width: 94%;
+                margin-left: 3%;
+                clear: both;
+            }
+
+                .LoginBox table tr:first-child td {
+                    text-align: center;
+                    font-size: 1.5em;
+                    border-bottom: 2px solid #D5DADE;
+                }
+        }
+
+        /* iPads (landscape) ----------- */
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+            /* Styles */
+            .Info {
+                width: 45%;
+                margin-left: 3%;
+                float: left;
+                text-align: center;
+            }
+
+                .Info img {
+                    width: 100%;
+                }
+
+                .Info h1 {
+                    font-weight: bold;
+                }
+
+            .LoginBox {
+                width: 45%;
+                margin-left: 5%;
+                float: left;
+            }
+
+                .LoginBox table tr:first-child td {
+                    text-align: center;
+                    font-size: 1.5em;
+                    border-bottom: 2px solid #D5DADE;
+                }
+        }
+
+        /* iPads (portrait) ----------- */
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+            /* Styles */
+        }
+    </style>
+</head>
+<body>
+    <div class="Info">
+        <img src="http://www.devcom2.be/images/logo.png" />
+        <h1>Devcom 2</h1>
+        <h2>Your High-Dev solution</h2>
+    </div>
+    <div class="LoginBox">
+        <table style="width: 100%;">
+            <tr>
+                <td colspan="2"><strong><br />Log in with your credentials</strong></td>
+            </tr>
+            <tr class="LoginTr">
+                <td>
+                    <table>
+                        <tr>
+                            <td><img src="images/userid.png" /></td>
+                            <td>
+                                <input type="text" value="Enter your email"
+                                       onfocus="this.value = '';"
+                                       onblur="if (this.value == '') {this.value = 'Enter your UserID';}"
+                                       id="txtUserName" name="txtUserName">
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="LoginTr">
+                <td>
+                    <table>
+                        <tr>
+                            <td><img src="images/lock.png" /></td>
+                            <td><input type="password" id="txtPassword" name="txtPassword"></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="LoginTr">
+                <td>
+                    <table>
+                        <tr>
+                            <td><input type="submit" onclick="sendRequest()" value="Log in" ></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function sendRequest() {
+            var pass = $("#txtPassword").val();
+            var serviceUrl = 'http://devcom2.api.mymobileapp.be/api/User?UserName=' + $("#txtUserName").val() + '&Password=' + $("#txtPassword").val() + '&return=json';
+            //var serviceUrl = 'http://localhost:1200/api/User?UserName=' + $("#txtUserName").val() + '&Password=' + $("#txtPassword").val() + '&return=json';-->
+            $.ajax({
+                type: "POST",
+                url: serviceUrl
+            }).done(function (data) {
+                if (data == "WRONG_CREDENTIALS") {
+                    alert("Cannot find this user.")
+                }
+                else if (data == "NOT_CONFIRMED") {
+                    alert("This account is not authorized. Please contact our support.")
+                }
+                else if (data == "NO_SUCH_USER") {
+                    alert("Cannot find this user.")
+                }
+                else {
+                    localStorage.setItem("Session", data);
+                    window.location = "overview3.html";
+                }
+            }).error(function (jqXHR, textStatus, errorThrown) {
+                alert(jqXHR.responseText || textStatus);
+            });
+        }
+    </script>
+
+</body>
+</html>

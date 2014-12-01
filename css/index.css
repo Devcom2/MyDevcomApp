@@ -1,0 +1,89 @@
+﻿body {
+    background-image: url('../images/background2.jpg');
+    background-repeat: repeat;
+}
+
+#header{
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 50px;
+    margin: -8px;
+    padding: 0;
+    background-color: red;
+}
+
+.trHeader img{
+    width: 100%;
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen 
+and (min-width : 321px) { 
+/* Styles */
+    .menu
+    {
+        position: fixed;
+        background-color: blue;
+        width: 35%;
+    }
+
+    #sidr{
+        max-width: 45%;
+    }
+
+    .trHeader
+    {
+        width: 30px;
+    }
+
+    .trHeader img{
+        padding-top: 10px;
+    }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen 
+and (max-width : 320px) {
+    .menu {
+        position: fixed;
+        background-color: blue;
+        width: 35%;
+    }
+
+    #sidr{
+        max-width: 45%;
+    }
+
+    .trHeader
+    {
+        width: 30px;
+    }
+
+    .trHeader img{
+        padding-top: 10px;
+    }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) {
+/* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) {
+/* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) {
+/* Styles */
+}

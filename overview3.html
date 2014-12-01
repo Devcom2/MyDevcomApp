@@ -1,0 +1,299 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>  
+
+    <!--<link href="scripts/mmenu/css/demo.css" rel="stylesheet" />-->
+    <link type="text/css" rel="stylesheet" href="scripts/mmenu/css/jquery.mmenu.all.css" />
+          
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>
+
+    <script src="scripts/mmenu/js/jquery.mmenu.min.all.js"></script>
+
+    <script type="text/javascript">
+    $(function () {
+        $('nav#menu').mmenu({
+            counters: true,
+            add: true,
+            content: "(c) 2014"
+        });
+    });
+    </script>
+    <style>
+        table {
+            border-spacing: 0px;
+            border-collapse: collapse;
+        }
+
+        #tblOverView{
+            /*background: url('http://www.devcon2.be/Images/logo.png') repeat-y center center fixed;*/
+            /*background-size: auto 100%;*/
+            width: 100%;
+            min-height: 100%;
+        }
+
+        .tblProduct
+        {
+            border-collapse: collapse;
+            width: 95%;
+            height: 95%;
+            margin-left: 10px;
+        }
+
+        .tblProduct tr td{
+            border-bottom: 0px !important;
+            background: initial !important;
+        }
+
+        body {
+            background: url('http://my.devcon2.be/Images/background2.jpg') repeat;
+            margin: 0;
+            font-family: Tahoma,'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            height: 100%;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        .body {
+            /*background-repeat: no-repeat;
+            background-position: center center;*/
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Smartphones (landscape) ----------- */
+        @media only screen and (min-width : 321px) {
+            #tblOverView tr td {
+                padding: 0px;
+                border-collapse: collapse;
+                border-bottom: 2px solid black;
+                background-color: rgba(243, 243, 243, 0.55);
+            }
+
+                #tblOverView tr td div {
+                    padding-top: 10px;
+                    min-height: 65px;
+                }
+        }
+
+        /* Smartphones (portrait) ----------- */
+        @media only screen and (max-width : 320px) {
+            #tblOverView tr td {
+                padding: 0px;
+                border-collapse: collapse;
+                border-bottom: 2px solid black;
+                background-color: rgba(243, 243, 243, 0.55);
+            }
+
+                #tblOverView tr td div {
+                    padding-top: 15px;
+                    min-height: 85px;
+                }
+        }
+    </style>
+
+</head>
+<body>
+    <div id="page">
+        <!--<div class="header">
+            <a href="#menu">qsdqsdqs</a>
+            Demo
+        </div>-->
+        <nav id="menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li>
+                    <a href="details_home.html">Webhosting</a>
+                    <ul>
+                        <li><a href="hosting_details.html">Home</a></li>
+                        <li><a href="#">New</a></li>
+                        <li><a href="#">Overview</a></li>
+                        <li><a href="#">How to use</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Domain Names</a>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">New</a></li>
+                        <li><a href="#">Overview</a></li>
+                        <li><a href="#">How to use</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Basic Email</a>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">New</a></li>
+                        <li><a href="#">Overview</a></li>
+                        <li><a href="#">How to use</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Exchange Email</a>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">New</a></li>
+                        <li><a href="#">Overview</a></li>
+                        <li><a href="#">How to use</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Databases</a>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">New</a></li>
+                        <li><a href="#">Overview</a></li>
+                        <li><a href="#">How to use</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Mobile Apps</a>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">New</a></li>
+                        <li><a href="#">Overview</a></li>
+                        <li><a href="#">How to use</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">User Details</a>
+                    <ul>
+                        <li><a href="#">Details</a></li>
+                        <li><a href="#">Order Overview</a></li>
+                        <li><a href="#">Financial information</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="body">
+        <table id="tblOverView">
+            <tr>
+                <td>
+                    <header>
+                        <table style="width: 100%;">
+                            <tr>
+                                <td style="width: 30px;">
+                                    <a href="#menu">
+                                        <img src="images/Menu-Icon.png" style="width: 40px;" />
+                                    </a>
+                                </td>
+                                <td style="text-align: center;">Welcome</td>
+                                <td style="width: 45px;">
+                                    <a href="#menu">
+                                        <img src="images/Refresh-Icon.png" style="width: 40px;" />
+                                    </a>
+                                </td>
+                            </tr>
+                        </table>
+                    </header>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <table class="tblProduct">
+                            <tr>
+                                <td rowspan="2" style="width: 70px;">
+                                    <img src="images/Webhosting.png" /></td>
+                                <td><strong>Webhosting</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Like a hotel for your website(s)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <table class="tblProduct">
+                            <tr>
+                                <td rowspan="2" style="width: 70px;">
+                                    <img src="images/DomainName.png" />
+                                </td>
+                                <td><strong>Domain Names</strong></td>
+                            </tr>
+                            <tr>
+                                <td>The address of your website(s)</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <table class="tblProduct">
+                            <tr>
+                                <td rowspan="2" style="width: 70px;">
+                                    <img src="images/mail.png" />
+                                </td>
+                                <td><strong>Basic Email</strong></td>
+                            </tr>
+                            <tr>
+                                <td>Manage all your business mails easily</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <table class="tblProduct">
+                            <tr>
+                                <td rowspan="2" style="width: 70px;">
+                                    <img src="images/MS Office.png" />
+                                </td>
+                                <td><strong>Exchange Email</strong></td>
+                            </tr>
+                            <tr>
+                                <td>If your coorporate mail needs a boost</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <table class="tblProduct">
+                            <tr>
+                                <td rowspan="2" style="width: 70px;">
+                                    <img src="images/Database.png" />
+                                </td>
+                                <td><strong>Databases</strong></td>
+                            </tr>
+                            <tr>
+                                <td>The storage of all your classified data</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <table class="tblProduct">
+                            <tr>
+                                <td rowspan="2" style="width: 70px;">
+                                    <img src="images/OS Android.png" />
+                                </td>
+                                <td><strong>Mobile Apps</strong></td>
+                            </tr>
+                            <tr>
+                                <td>The representation of your business on mobile devices</td>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+﻿        table {
+            border-spacing: 0px;
+            border-collapse: collapse;
+        }
+
+        #tblOverView{
+            /*background: url('http://www.devcon2.be/Images/logo.png') repeat-y center center fixed;*/
+            /*background-size: auto 100%;*/
+            width: 100%;
+            min-height: 100%;
+        }
+
+        .tblProduct
+        {
+            border-collapse: collapse;
+            width: 95%;
+            height: 95%;
+            margin-left: 10px;
+        }
+
+        .tblProduct tr td{
+            border-bottom: 0px !important;
+            background: initial !important;
+        }
+
+        body {
+            background: url('http://my.devcon2.be/Images/background2.jpg') repeat;
+            margin: 0;
+            font-family: Tahoma,'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            height: 100%;
+        }
+
+        html {
+            height: 100%;
+        }
+
+        .body {
+            /*background-repeat: no-repeat;
+            background-position: center center;*/
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Smartphones (landscape) ----------- */
+        @media only screen and (min-width : 321px) {
+            #tblOverView tr td {
+                padding: 0px;
+                border-collapse: collapse;
+                border-bottom: 2px solid black;
+                background-color: rgba(243, 243, 243, 0.55);
+            }
+
+                #tblOverView tr td div {
+                    padding-top: 10px;
+                    min-height: 65px;
+                    max-height: 65px;
+                }
+        }
+
+        /* Smartphones (portrait) ----------- */
+        @media only screen and (max-width : 320px) {
+            #tblOverView tr td {
+                padding: 0px;
+                border-collapse: collapse;
+                border-bottom: 2px solid black;
+                background-color: rgba(243, 243, 243, 0.55);
+            }
+
+                #tblOverView tr td div {
+                    padding-top: 15px;
+                    min-height: 85px;
+                    max-height: 85px;
+                }
+        }

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="css/devcom2.css" rel="stylesheet" />
+    <link type="text/css" rel="stylesheet" href="scripts/mmenu/css/jquery.mmenu.all.css" />
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+    <script src="scripts/mmenu/js/jquery.mmenu.min.all.js"></script>
+    <script type="text/javascript">
+            var count = 8;
+            var countitem = 1;
+            $(function () {
+                $('nav#menu').mmenu();
+
+                var serviceUrl = 'http://devcom2.be/wcf/Hostings.svc/list/' + localStorage.getItem('Session');
+                $.getJSON(serviceUrl, function (data) {
+                    var items = [];
+                    for (var i = 0; i < data.length; i++) {
+                        //var object = '<div class="ListItem ' + (i + 1) + '"><a href="hosting_details.html?param=' + data[i].DisplayName + '" ><i><img src="http://my.devcom2.be/Images/Icons/WHITE/Webhosting.png" alt="" /></i> <span>' + data[i].DisplayName + '</span><div class="clear"></div></a></div>';
+                        var object = '<tr><td><div><table class="tblProduct"><tr><td rowspan="2" style="width: 70px;"><img src="images/Webhosting.png" /></td><td colspan="2"><strong>' + data[i].DisplayName + '</strong></td></tr><tr><td>Type: ' + data[i].Type + '</td><td><a style="color: green;">' + data[i].AppPoolState + '</a></td></tr></table></div></td></tr>';
+                        $('#tblOverView').append(object);
+                    }
+                });
+            });
+
+    </script>
+</head>
+<body>
+    <div class="body" id="HostingList">
+        <table id="tblOverView">
+        </table>
+</div>
+</body>
+</html>
