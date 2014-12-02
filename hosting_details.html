@@ -16,6 +16,43 @@
                 add: true,
                 content: "(c) 2014"
             });
+
+            var serviceUrl = 'http://devcom2.be/wcf/Hostings.svc/Details/' + localStorage.getItem('Session') + '/' + 'ijsroom-popeye.be';//localStorage.getItem('HostingDisplayName');
+            $.getJSON(serviceUrl, function (data) {
+                
+                var date = new Date(parseInt(data.ExpirationDate.substr(6)));
+
+                $("#HostingSize").html('<br />' + data.LatestSize);
+                $("#HostingType").html('<br />' + data.Server);
+                $("#HostingExpDate").html('<br />' + ("0" + date.getDate()).slice(-2) + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + date.getFullYear());
+
+                if (data.AppPoolVersion == "v4.0") {
+                    $("#AppPoolVersion40").addClass('ActiveButton');
+                    $("#AppPoolVersion20").addClass('DeactiveButton');
+                }
+                else {
+                    $("#AppPoolVersion20").addClass('ActiveButton');
+                    $("#AppPoolVersion40").addClass('DeactiveButton');
+                }
+
+                if (data.AppPoolState == "Started") {
+                    $("#AppPoolStateRunning").addClass('ActiveButton');
+                    $("#AppPoolStateStopped").addClass('DeactiveButton');
+                }
+                else {
+                    $("#AppPoolStateStopped").addClass('ActiveButton');
+                    $("#AppPoolStateRunning").addClass('DeactiveButton');
+                }
+
+                if (data.AppPoolPipeLine == "Integrated") {
+                    $("#AppPoolPipeInteg").addClass('ActiveButton');
+                    $("#AppPoolPipeClassic").addClass('DeactiveButton');
+                }
+                else {
+                    $("#AppPoolPipeClassic").addClass('ActiveButton');
+                    $("#AppPoolPipeInteg").addClass('DeactiveButton');
+                }
+            });
         });
     </script>
 
@@ -114,48 +151,49 @@
         </table>
 
     </div>
-    <div class="body2">
+    <div class="body2"><br />
         <div class="divCanvas">
             <canvas id="Mailbox"></canvas>
         </div>
         <div class="HostingBasics">
             <table style="width: 100%;">
                 <tr>
-                    <td style="width: 45%;">Grootte:</td>
+                    <td style="width: 45%;"><br />Grootte:</td>
                     <td><a id="HostingSize">Grootte</a></td>
 
                 </tr>
                 <tr>
-                    <td>Grootte:</td>
-                    <td><a id="HostingSize">Grootte</a></td>
+                    <td><br />Type:</td>
+                    <td><a id="HostingType">Grootte</a></td>
 
                 </tr>
                 <tr>
-                    <td>Grootte:</td>
-                    <td><a id="HostingSize">Grootte</a></td>
+                    <td><br />Vervaldatum:</td>
+                    <td><a id="HostingExpDate">Grootte</a></td>
 
                 </tr>
             </table>     
-            <div class="button ActiveButton" style="margin-left: 2%;">
+            <br />
+            <div class="button" style="margin-left: 2%;" id="AppPoolStateRunning">
                 Running
             </div>
-            <div class="button DeactiveButton">
+            <div class="button" id="AppPoolStateStopped">
                 Stopped
             </div>
             <div style="clear: both"></div>
 
-            <div class="button ActiveButton" style="margin-left: 2%;">
+            <div class="button" style="margin-left: 2%;" id="AppPoolVersion20">
                 V2.0
             </div>
-            <div class="button DeactiveButton">
+            <div class="button" id="AppPoolVersion40">
                 V4.0
             </div>
             <div style="clear: both"></div>
 
-            <div class="button ActiveButton" style="margin-left: 2%;">
+            <div class="button" style="margin-left: 2%;" id="AppPoolPipeClassic">
                 Classic
             </div>
-            <div class="button DeactiveButton">
+            <div class="button" id="AppPoolPipeInteg">
                 Integrated
             </div>
             <div style="clear: both"></div>
