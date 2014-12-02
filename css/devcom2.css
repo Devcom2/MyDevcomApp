@@ -41,6 +41,12 @@
             height: 100%;
         }
 
+        .body2{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(243, 243, 243, 0.55);
+        }
+
         /* Smartphones (landscape) ----------- */
         @media only screen and (min-width : 321px) {
             #tblOverView tr td {
@@ -55,6 +61,23 @@
                     min-height: 65px;
                     max-height: 65px;
                 }
+        }
+
+        .button {
+            cursor: pointer;
+            float: left;
+            height: 35px;
+            text-align: center;
+            width: 45%;
+            line-height: 35px;
+        }
+        .ActiveButton {
+            background-color: #60c5dc;
+            border: 2px solid #696161;
+        }
+        .DeactiveButton {
+            background-color: white;
+            border: 2px solid #dcdada;
         }
 
         /* Smartphones (portrait) ----------- */
